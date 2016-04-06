@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="DeferPromiseApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Defer Promise App</title>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="index.js"></script>
+</head>
+<body ng-controller="DPCtrl">
+
+<input type="text" size="50" ng-model="order" placeholder="What's your order?">
+<br><br>
+<button type="button" ng-click="serveBtn()">Ready to serve</button>
+<button type="button" ng-click="rejectBtn()">No stocks!</button>
+
+<h3>{{message}}</h3>
+
+
+</body>
+</html>
