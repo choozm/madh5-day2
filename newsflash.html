@@ -5,16 +5,39 @@
     <title>News Flash</title>
     <script src="bower_components/angular/angular.js"></script>
     <script src="newsflash.js"></script>
+    <script src="newsSvc.js"></script>
 </head>
 <body ng-controller="NFCtrl">
 
-Name: <input type="text" size="30" ng-model="name" placeholder="Your name">
-<br>
-<textarea cols="50" rows="10" placeholder="Your comment" ng-model="comment"></textarea>
-<br>
-<button type="submit" ng-click="postComment()">Post</button>
+<div style="border: 2px solid blue">
+    <div style="font-size: 2em; background-color: lightskyblue">
+        <a href="{{newsItem.link}}" target="_blank" style="text-decoration: none; color: black">{{newsItem.title}}</a>
+    </div>
+    <div style="font-size: 1.2em; border: 5px solid blue">
+        <img src="{{newsItem.thumbnail}}" width="240">
+        <br>
+        {{newsItem.description}}
+        <br>
+    </div>
+    <div style="font-size: 0.6em; border: 5px solid blue ">
+        {{newsItem.pubdate}}
+    </div>
+</div>
 
+<br>
+<br>
+<button type="button" ng-click="startNews()">Start</button>
+<button type="button" ng-click="stopNews()">Stop</button>
 
+<br>
+<br>
+Name:<br>
+<input type="text" size="30" data-ng-model="name" placeholder="Your name">
+<br>
+Comment:<br>
+<textarea cols="50" rows="10" placeholder="Your comment" data-ng-model="comment"></textarea>
+<br>
+<button type="button" ng-click="postComment()">Post</button>
 
 
 </body>
