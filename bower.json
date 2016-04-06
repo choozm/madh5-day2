@@ -1,0 +1,21 @@
+{
+  "name": "madh5-day2",
+  "homepage": "https://github.com/choozm/madh5-day2",
+  "authors": [
+    "Choo Zhi Min <choozhimin@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "angularjs#^1.5.3"
+  }
+}
