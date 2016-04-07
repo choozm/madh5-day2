@@ -1,6 +1,6 @@
-var NewsFlashApp = angular.module("NewsFlashApp", ["NewsService"]);
+var NewsFlashApp = angular.module("NewsFlashApp", ["NewsService", "CommentService"]);
 
-var NFCtrl = function ($scope, $http, $httpParamSerializerJQLike, NewsSvc) {
+var NFCtrl = function ($scope, $http, $httpParamSerializerJQLike, NewsSvc, CommentSvc) {
     $scope.title = "";
     $scope.name = "ZM";
     $scope.comment = "Wow";
@@ -20,19 +20,8 @@ var NFCtrl = function ($scope, $http, $httpParamSerializerJQLike, NewsSvc) {
     };
 
     $scope.postComment = function () {
-        $http({
-            url: "http://10.10.0.50:10633/topnews/comment",
-            method: "post",
-            headers: {
-                "Content-Type": "application/x-www-form-urlencoded"
-            },
-            data: $httpParamSerializerJQLike({
-                title: $scope.newsItem.title,
-                name: $scope.name,
-                comment: $scope.comment
-            })
-        })
+        CommentSvc.postComment($scope.newsItem.title, $scope.name, $scope.comment);
     };
 };
 
-NewsFlashApp.controller("NFCtrl", ["$scope", "$http", "$httpParamSerializerJQLike", "NewsSvc", NFCtrl]);
+NewsFlashApp.controller("NFCtrl", ["$scope", "$http", "$httpParamSerializerJQLike", "NewsSvc", "CommentSvc", NFCtrl]);
